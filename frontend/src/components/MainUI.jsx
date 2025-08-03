@@ -77,17 +77,10 @@ const MainUI = ({ dark }) => {
 
    return (
       <div
-         className={`w-[360px] h-[600px] p-4 rounded shadow-lg overflow-y-auto font-sans ${
+         className={`w-[360px] h-[600px] p-4 shadow-lg overflow-y-auto font-sans ${
             dark ? "bg-[#1B121A] text-white" : "bg-[#EFE5CB] text-black"
          }`}
       >
-         <h1
-            className={`text-2xl font-bold mb-4 text-center shadow-sm ${
-               dark ? "text-yellow-300" : "text-rose-700"
-            }`}
-         >
-            FreshWords
-         </h1>
 
          <h2
             className={`text-lg font-semibold mb-4 text-center drop-shadow ${
