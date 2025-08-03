@@ -60,6 +60,7 @@ const MainUI = ({ dark }) => {
          default:
             break;
       }
+      chrome.storage.local.clear();
       setIsChanged(true);
       if (response?.outputText) setOutput(response.outputText);
       setHandlingLoading(false);
