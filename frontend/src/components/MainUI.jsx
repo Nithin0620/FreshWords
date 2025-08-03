@@ -1,3 +1,5 @@
+/* global chrome */
+
 import React, { useEffect, useState } from "react";
 import { useHandlingStore } from "../store/Handling";
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -28,6 +30,12 @@ const MainUI = ({ dark }) => {
    };
 
    useEffect(() => {
+      if (typeof chrome !== "undefined" && chrome.storage && chrome.storage.local) {
+         chrome.storage.local.get(['selectedText'], (result) => {
+         if (result.selectedText) {
+         setInput(result.selectedText)
+         }})
+      }
       setIsChanged(false);
       const recentCall = async () => {
          const recentResponse = await recentHistory();
