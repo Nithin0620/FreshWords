@@ -16,6 +16,7 @@
     "express": "^5.1.0",
     "groq-sdk": "^0.29.0",
     "mongoose": "^8.16.5",
+    "msc": "file:..",
     "nodemon": "^3.1.10"
   }
 }

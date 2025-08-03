@@ -37,3 +37,19 @@ exports.markAsFavorite = async(req,res)=>{
       return res.status(500).json({success:false,message:"error in markAsFavorite"});
    }
 }
+
+
+exports.clearHistory = async(req,res)=>{
+   try{
+      const ip = req.ip;
+
+      if(!ip) return res.status(404).json({success:false,message:"Unable to find your ip"});
+
+      const response = await History.deleteMany({userIp:ip});
+
+      return res.status(200).json({success:true,message:"User history deleted successfully.",data:response});
+   }
+   catch(e){
+      return res.status(500).json({success:false,message:"error in Delete History"});
+   }
+}
