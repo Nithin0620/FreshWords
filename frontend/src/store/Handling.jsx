@@ -1,7 +1,7 @@
 import {create} from "zustand"
 import axios from "axios"
 
-const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:4000/api":"/api";
+const BASE_URL = process.env.NODE_ENV === "development" ? "http://localhost:4000/api":"https://wordflow-0251.onrender.com/api";
 
 export const useHandlingStore = create((get,set)=>({
    

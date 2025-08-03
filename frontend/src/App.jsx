@@ -12,8 +12,8 @@ const App = () => {
   
   return (
     <div>
-      <Navbar dark={dark} setDark={setDark}/>
-      <MainUI dark={dark}/>
+      
+      <MainUI dark={dark} setDark={setDark}/>
     </div>
   )
 }

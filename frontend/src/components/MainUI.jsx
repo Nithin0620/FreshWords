@@ -1,10 +1,10 @@
 /* global chrome */
-
 import React, { useEffect, useState } from "react";
 import { useHandlingStore } from "../store/Handling";
 import { FaStar, FaRegStar } from "react-icons/fa";
+import Navbar from "./Navbar";
 
-const MainUI = ({ dark }) => {
+const MainUI = ({ dark ,setDark}) => {
    const [input, setInput] = useState("");
    const [output, setOutput] = useState(null);
    const [recentLoading, setRecentLoading] = useState(false);
@@ -76,15 +76,20 @@ const MainUI = ({ dark }) => {
    };
 
    return (
+      <div  className={`shadow-lg w-[360px] min-h-[600px] max-h-[605px] transition-colors duration-500  font-sans ${
+         dark ? "bg-[#1B121A] text-white" : "bg-[#EFE5CB] text-black"
+      }`} >
+         <Navbar dark={dark} setDark={setDark}/>
       <div
-         className={`w-[360px] h-[600px] p-4 shadow-lg overflow-y-auto font-sans ${
-            dark ? "bg-[#1B121A] text-white" : "bg-[#EFE5CB] text-black"
-         }`}
+      className={` p-4 transition-colors duration-500  shadow-lg font-sans ${
+         dark ? "bg-[#1B121A] text-white" : "bg-[#EFE5CB] text-black"
+      }`}
       >
+      
 
          <h2
             className={`text-lg font-semibold mb-4 text-center drop-shadow ${
-               dark ? "text-white" : "text-gray-700"
+               dark ? "text-white" : "text-gray-900"
             }`}
          >
             Welcome back, user
@@ -102,7 +107,7 @@ const MainUI = ({ dark }) => {
                className={`w-full p-2 rounded border bg-transparent border-blue-300 text-sm ${
                   dark
                      ? "bg-[#2b1f27] border-gray-600 placeholder-gray-400"
-                     : "bg-white border-gray-300 placeholder-gray-600"
+                     : "bg-[#EFE5CB] backdrop:blur-3xl border-gray-300 placeholder-gray-600"
                }`}
             />
          </div>
@@ -157,7 +162,7 @@ const MainUI = ({ dark }) => {
                      className={`w-full p-2 rounded min-h-[100px] border  bg-transparent border-blue-300 outline-none text-sm resize-none ${
                         dark
                            ? "bg-[#2b1f27] border-gray-600 placeholder-gray-400"
-                           : "bg-white border-gray-300 placeholder-gray-600"
+                           : "bg-[#EFE5CB] backdrop:blur-3xl border-gray-300 placeholder-gray-600"
                      }`}
                   />
                </div>
@@ -193,7 +198,7 @@ const MainUI = ({ dark }) => {
                      </div>
                      <div
                         onClick={() => handleIsFavoriteClick(history._id)}
-                        className="text-yellow-500 cursor-pointer pl-2"
+                        className="text-yellow-500 text-xl cursor-pointer pl-2"
                      >
                         {history.isFavorite ? <FaStar /> : <FaRegStar />}
                      </div>
@@ -211,12 +216,13 @@ const MainUI = ({ dark }) => {
                className={`px-4 py-2 text-xs font-semibold rounded ${
                   dark
                      ? "bg-red-800 hover:bg-red-700"
-                     : "bg-red-300 hover:bg-red-400"
+                     : "bg-red-300 hover:bg-red-500"
                } ${clearHistoryLoading ? "opacity-60 cursor-not-allowed" : ""}`}
             >
                {clearHistoryLoading ? "Clearing..." : "Clear History"}
             </button>
          </div>
+      </div>
       </div>
    );
 };
